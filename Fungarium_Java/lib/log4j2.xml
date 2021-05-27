@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Configuration status="error"
+	name="FCI Certificate Broker Rest Services" monitorInterval="30">
+	<Properties>
+		<Property name="layout1" value="[%d{ISO8601}] %-5p: %m%n" />
+	</Properties>
+	<Appenders>
+		<!-- Dieser Logger hat default Werte für Username Password und SystemDB -->
+		<JDBC name="DBmap" tableName="protokoll">
+			<DriverManager
+				connectionString="jdbc:mysql://192.168.178.59:3306/fungarium" 
+				userName="root"
+				password="" 
+				driverClassName="com.mysql.cj.jdbc.Driver" />
+			
+			<ColumnMapping name="Bauteil" pattern="${Bauteil}" />
+			<ColumnMapping name="An" pattern="${An}" />
+			<ColumnMapping name="Eintrag" pattern="${Eintrag}" />
+		</JDBC>
+		<JDBC name="DBlog" tableName="protokoll">
+			<DriverManager
+				connectionString="jdbc:mysql://192.168.178.59:3306/fungarium" 
+				userName="root"
+				password="" 
+				driverClassName="com.mysql.cj.jdbc.Driver" />
+			<Column name="Eintrag" pattern="%message" />
+		</JDBC>
+		
+		<Console name="Console">
+			<PatternLayout>
+				<Pattern>${layout1}</Pattern>
+			</PatternLayout>
+		</Console>
+		<RollingFile name="File"
+			fileName="/home/pi/fungarium/logs/fungarium.log"
+            filePattern="/home/pi/fungarium/logs/history/fungarium.log-%d{MM-dd-yyyy}-%i.log.zip">
+			<PatternLayout>
+				<Pattern>${layout1}</Pattern>
+			</PatternLayout>
+			<Policies>
+				<TimeBasedTriggeringPolicy />
+			</Policies>
+		</RollingFile>
+	</Appenders>
+	<Loggers>
+
+		<Root level="info">
+			<AppenderRef ref="Console" />
+			<AppenderRef ref="File" />
+		</Root>
+
+		<Logger name="com.dhbw.fungarium" level="info" />
+		<Logger name="DBmap" level="info" additivity="false">
+			<AppenderRef ref="DBmap" />			
+		</Logger>
+		<Logger name="DBlog" level="info" additivity="false">
+			<AppenderRef ref="DBlog" />
+			<AppenderRef ref="Console" />
+			<AppenderRef ref="File" />
+		</Logger>
+	</Loggers>
+</Configuration>
+
+
