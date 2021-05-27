@@ -66,9 +66,11 @@ The **controlling page** comprises a total of four pages:
 The frontend is currently only available in German.
 
 The following figure shows the **Temperature** page:
-![image info](/pictures/Temperature.PNG)
 
-The features and use cases of the software, as well as the complete documentation of the project are included in the file &quot;_ **Documentation\_Fungarium.pdf** _&quot;.
+
+![image info](pictures/Temperature.PNG)
+
+The features and use cases of the software, as well as the complete documentation of the project are included in the file &quot;**Documentation\_Fungarium.pdf**&quot;.
 
 **Preinstallation:**
 
