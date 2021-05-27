@@ -16,7 +16,7 @@ In addition, the server-client connection is secured by integrating an SSL certi
 
 **Architecture of the project:**
 
-![image info](./pictures/architecture.png)
+![image info](/pictures/Architecture.png)
 
 **Required components:**
 
@@ -39,7 +39,7 @@ The components are selected via the control page using checkboxes.
 
 The data wire of the DHT22 sensor must be connected to the pin GPIO4 of the Raspberry Pi (see code example). If a DHT11 is used, the &quot;mydht.py&quot; file must change the value &quot;DHT22&quot; to &quot;DHT11&quot;. The power supply can be selected via the control side.
 
-![image info](./pictures/DHT.png)
+![image info](/pictures/DHT.png)
 
 **Software description:**
 
@@ -66,7 +66,7 @@ The **controlling page** comprises a total of four pages:
 The frontend is currently only available in German.
 
 The following figure shows the **Temperature** page:
-![image info](./pictures/Temperature.png)
+![image info](/pictures/Temperature.png)
 
 The features and use cases of the software, as well as the complete documentation of the project are included in the file &quot;_ **Documentation\_Fungarium.pdf** _&quot;.
 
